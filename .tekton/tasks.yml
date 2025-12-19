@@ -1,0 +1,30 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: cleanup-task
+spec:
+  description: Cleanup workspace after pipeline execution
+  steps:
+    - name: cleanup
+      image: alpine
+      script: |
+        echo "Starting cleanup task..."
+        rm -rf /workspace/*
+        echo "Workspace cleaned successfully"
+
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: test-task
+spec:
+  description: Run unit tests using Jest
+  steps:
+    - name: run-tests
+      image: node:18
+      workingDir: /workspace
+      script: |
+        echo "Installing dependencies..."
+        npm install
+        echo "Running Jest tests..."
+        npx jest
