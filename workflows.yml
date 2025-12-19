@@ -1,0 +1,24 @@
+
+---
+
+## GitHub Actions
+GitHub Actions is used to automate the CI process. The workflow performs the following:
+- Checks out the repository
+- Installs dependencies
+- Executes unit tests
+- Reports the build status
+
+---
+
+## OpenShift and Tekton
+Tekton is used to define reusable tasks and pipelines. These tasks are executed within OpenShift to manage the deployment lifecycle of the application. PersistentVolumeClaims are used to manage storage during pipeline execution.
+
+---
+
+## Outcome
+The CI/CD pipeline runs successfully with all stages passing. The application is deployed on OpenShift, and logs confirm that the application is running without errors.
+
+---
+
+## Conclusion
+This project successfully demonstrates how CI/CD practices can be applied using modern DevOps tools. Automating the software delivery pipeline improves efficiency, consistency, and reliability in application deployment.
